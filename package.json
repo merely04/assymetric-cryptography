@@ -1,0 +1,17 @@
+{
+  "name": "assymetric-cryptography",
+  "module": "main.ts",
+  "type": "module",
+  "scripts": {
+    "genpriv": "openssl genrsa -out private_key.pem 4096",
+    "genpub": "openssl rsa -in private_key.pem -pubout -out public_key.pem",
+    "encrypt": "bun run main.ts --mode e --input input.txt --output result.txt && cp result.txt input-d.txt",
+    "decrypt": "bun run main.ts --mode d --input input-d.txt --output result.txt"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.0.6"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
